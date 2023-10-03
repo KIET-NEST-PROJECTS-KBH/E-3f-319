@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Named Entity Recognition</title>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url("https://img.freepik.com/premium-photo/abstract-background-images-wallpaper-ai-generated_643360-21943.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 40%;
+            height: 90%;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.7); /* Adding a semi-transparent white background to the container */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Adding a box shadow for depth */
+        }
+
+        h1 {
+            color:black; /* Color for the title */
+        }
+
+        h2 {
+            color:black; /* Color for the named entities header */
+        }
+
+        textarea {
+            width: 25%; /* Make the text area expand to the container's width */
+            padding: 10px;
+            border: 1px solid #000; /* Add a border to the text area */
+        }
+
+        input[type="submit"] {
+            background-color: #336699; /* Button background color */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #236737; /* Hover color for the button */
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 5px;
+            color: green; /* Color for the named entities */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <center>
+            <h1>Named Entity Recognition</h1>
+            <form method="POST" action="/">
+                <textarea name="text" rows="4" cols="50" placeholder="Enter text here..."></textarea><br><br>
+                <input type="submit" value="Extract Named Entities">
+            </form>
+            <h2>Named Entities:</h2>
+            <ul>
+                {% for entity in entities %}
+                    <li>{{ entity.text }} ({{ entity.label }})</li>
+                {% endfor %}
+            </ul>
+        </center>
+    </div>
+</body>
+</html>
